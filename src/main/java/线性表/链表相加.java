@@ -1,5 +1,7 @@
 package 线性表;
 
+import static 线性表.ListNodeUtil.print;
+
 /**
  * 题目：
  * 给定两个链表，分别表示两个非负整数。它 们的数字逆序存储在链表中，且每个结点只 存储一个数字，计算两个数的和，并且返回 和的链表头指针。
@@ -9,10 +11,10 @@ public class 链表相加 {
 
     public static void main(String[] args) {
         //创建两个链表
-        ListNode one = crateListNode(new int[]{9, 9, 9});
-        ListNode two =  crateListNode(new int[]{1, 2, 3});
+        ListNode one = ListNodeUtil.createListNode(new int[]{9, 9, 9});
+        ListNode two =  ListNodeUtil.createListNode(new int[]{1, 2, 3});
         ListNode listNode = addListNode(one, two);
-        print(listNode);
+        ListNodeUtil.print(listNode);
     }
 
     //链表相加
@@ -72,37 +74,5 @@ public class 链表相加 {
             result.next=new ListNode(carry,null);
         }
         return root.next;
-    }
-
-    //循环输出链表
-    public static void print(ListNode node){
-        while(null!=node){
-            System.out.println(node.key);
-            node=node.next;
-        }
-    }
-
-    // 生成一个链表，用于测试
-    public static ListNode crateListNode(int [] arr){
-        if(null!=arr && arr.length>0){
-            ListNode result=new ListNode(-1,null);
-            ListNode root=result;
-            for(int i=0;i<arr.length;i++){
-                result.next=new ListNode(arr[i],null);
-                result=result.next;
-            }
-            return root.next;
-        }
-        return null;
-    }
-
-}
-
-class ListNode{
-    int key;
-    ListNode next;
-    ListNode(int key,ListNode next){
-        this.key=key;
-        this.next=next;
     }
 }
