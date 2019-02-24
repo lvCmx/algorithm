@@ -25,6 +25,30 @@ public class ListNodeUtil {
         }
         return null;
     }
+
+    public static ListNode createListNodeHasHead(int[] arr) {
+        if(null!=arr && arr.length>0){
+            ListNode result=new ListNode(-1,null);
+            ListNode root=result;
+            for(int i=0;i<arr.length;i++){
+                result.next=new ListNode(arr[i],null);
+                result=result.next;
+            }
+            return root;
+        }
+        return null;
+    }
+
+    public static void printNotHasHead(ListNode node) {
+        if(null==node || null==node.next){
+            return;
+        }
+        node=node.next;
+        while(null!=node){
+            System.out.println(node.key);
+            node=node.next;
+        }
+    }
 }
 
 
